@@ -7,20 +7,6 @@ def write_new(name, count_ci, count_List, avg):
         f.writelines(t + '\n')
 
 
-def read_old():
-    with open('猜数字.txt', 'r', encoding='utf8') as f:
-        dict = {}
-        A = f.readlines()
-        # print(A)
-        for i in A:
-            record = i.split(',')
-            dict[record[0]] = record[1:]
-            if name == record[0]:
-                print('%s的最好记录:共猜了%s次,最少%s轮猜中,平均%s轮猜中,游戏开始' % (name, record[1], record[2], record[3]))
-                list = dict[name]
-                return list
-
-
 def write_old(name, count_ci, count_List, avg):
     with open('猜数字.txt', 'r+', encoding='utf8') as f:
         dict = {}
