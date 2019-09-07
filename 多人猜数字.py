@@ -33,7 +33,7 @@ def guess_ganme(name):
     count_ci = 0
     while True:
         a = int(input('请输入一个1-10的数字:'))
-        if a:
+        if a in range(1,11):
             if a < num:
                 print('猜小了!')
                 count += 1
