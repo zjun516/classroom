@@ -19,7 +19,7 @@ def write_old(name, count_ci, count_List,sum):
             if name == record[0]:
                 # print('%s的最好记录:共猜对了%s次,最少%s轮猜中,平均%s轮猜中,游戏开始' % (name, record[1], record[2], record[3]))
                 sum_all = sum+int(record[3])
-                dict[name] = [count_ci+int(dict[name][0]), min(count_List,int(record[2])),sum_all, int(sum_all/int(record[1]))]
+                dict[name] = [count_ci+int(dict[name][0]), min(count_List,int(record[2])),sum_all, round(sum_all/(count_ci+int(dict[name][0])),1)]
     t = name + ',' + str(dict[name][0]) + ',' + str(dict[name][1]) + ',' + str(dict[name][2])+','+str(dict[name][3])
     with open('game.txt', 'r+', encoding='utf8') as f_w:
         for line in lines:
@@ -51,7 +51,7 @@ def guess_ganme(name):
                     count_list.append(count)
                     zuishao = min(count_list)
                     print("猜对啦!")
-                    print('本局游戏记录:%s共猜对了%d次,最少%d轮猜中,本轮玩了%s轮,平均%d轮猜中,游戏开始' % (name, count_ci,zuishao,sum, int(sum / count_ci)))
+                    print('本局游戏记录:%s共猜对了%d次,最少%d轮猜中,本轮玩了%s轮,平均%d轮猜中,游戏开始' % (name, count_ci,zuishao,sum, round(sum / count_ci,1)))
                     p = int(input('是否继续,继续输入:1,退出输入:0'))
                     if p == 1:
                         count = 0
